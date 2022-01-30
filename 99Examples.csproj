@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0-android</TargetFramework>
+        <UseMaui>true</UseMaui>
+    </PropertyGroup>
+
+    <ItemGroup>
+	  <PackageReference Include="astator.Core" Version="*" />
+	  <PackageReference Include="Serilog" Version="2.10.0" />
+	</ItemGroup>
+
+    <ProjectExtensions>
+        <IsObfuscate>True</IsObfuscate>
+        <ApkBuilderConfigs>
+            <Label>Examples</Label>
+            <PackageName>com.script.Examples</PackageName>
+            <Version>1.0.0</Version>
+        </ApkBuilderConfigs>
+    </ProjectExtensions>
+
+</Project>
+ 
