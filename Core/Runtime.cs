@@ -1,32 +1,85 @@
-using System;   
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;    
-using astator.Core;
+using System;
 using astator.Core.UI;
 using astator.Core.UI.Floaty;
 using astator.Core.Threading;
-using static astator.Core.Globals.Permission;
+using astator.Core.Script;
+using Android.App;
 
-namespace Examples;
-
+namespace Examples.Core;
 public static class Runtime
 {
+    
+    /// <summary>
+    /// 实例
+    /// </summary>
     public static ScriptRuntime Instance { get; set; }
 
-    public static string ScriptId { get => Instance.ScriptId; }
+    /// <summary>
+    /// 脚本自身的activity, 非ui模式时为null
+    /// </summary>
+    public static Activity Activity => Instance.Activity;
 
-    public static UiManager Ui { get => Instance.Ui; }
+    /// <summary>
+    /// 脚本id
+    /// </summary>
+    public static string ScriptId => Instance.ScriptId;
 
-    public static FloatyManager Floatys { get => Instance.Floatys; }
+    /// <summary>
+    /// ui管理类
+    /// </summary>
+    public static UiManager Ui => Instance.Ui;
 
-    public static ScriptThreadManager Threads { get => Instance.Threads; }
+    /// <summary>
+    /// 悬浮窗相关
+    /// </summary>
+    public static FloatyHelper FloatyHelper => Instance.FloatyHelper;
 
-    public static ScriptTaskManager Tasks { get => Instance.Tasks; }
+    /// <summary>
+    /// 线程管理类
+    /// </summary>
+    public static ThreadManager Threads => Instance.Threads;
 
-    public static bool IsUiMode { get => Instance.IsUiMode; }
+    /// <summary>
+    /// Task管理类
+    /// </summary>
+    public static TaskManager Tasks => Instance.Tasks;
 
-    public static ScriptState State { get => Instance.State; }
+    public static PermissionHelper PermissionHelper => Instance.PermissionHelper;
 
-    public static string Directory { get => Instance.Directory; }
+    /// <summary>
+    /// 是否为ui模式
+    /// </summary>
+    public static bool IsUiMode => Instance.IsUiMode;
+
+    /// <summary>
+    /// 脚本工作路径
+    /// </summary>
+    public static string WorkDir => Instance.WorkDir;
+
+    /// <summary>
+    /// 在脚本停止时退出应用, 只在打包apk有效
+    /// </summary>
+    public static bool IsExitAppOnStoped => Instance.IsExitAppOnStoped;
+
+    /// <summary>
+    /// 添加一个脚本停止时的回调
+    /// </summary>
+    public static void AddExitCallback(Action callback) => Instance.AddExitCallback(callback);
+
+    /// <summary>
+    /// 添加一个logger的回调
+    /// </summary>
+    /// <returns>回调的key</returns>
+    public static string AddLoggerCallback(Action<LogArgs> callback) => Instance.AddLoggerCallback(callback);
+
+    /// <summary>
+    /// 移除logger的回调
+    /// </summary>
+    /// <param name="key">回调的key, 当key为空时移除当前runtime添加的所有logger回调</param>
+    public static void RemoveLoggerCallback(string key = null) => Instance.RemoveLoggerCallback(key);
+
+    /// <summary>
+    /// 停止脚本
+    /// </summary>
+    public static void SetStop() => Instance.SetStop();
 }

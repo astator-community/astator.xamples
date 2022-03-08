@@ -6,16 +6,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-	  <PackageReference Include="astator.Core" Version="*" />
-	  <PackageReference Include="Serilog" Version="2.10.0" />
-	</ItemGroup>
+        <PackageReference Include="astator.Core" Version="0.2.1" />
+        <PackageReference Include="Serilog" Version="2.10.0" />
+    </ItemGroup>
 
     <ProjectExtensions>
-        <IsObfuscate>True</IsObfuscate>
+        <IsObfuscate>true</IsObfuscate>
+        <UseOCR>true</UseOCR>
         <ApkBuilderConfigs>
             <Label>Examples</Label>
             <PackageName>com.script.Examples</PackageName>
-            <Version>1.0.0</Version>
+            <Version>0.2.3</Version>
         </ApkBuilderConfigs>
     </ProjectExtensions>
 
