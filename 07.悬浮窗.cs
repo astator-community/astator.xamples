@@ -6,7 +6,6 @@ using astator.Core.ThirdParty;
 using astator.Core.UI.Base;
 using astator.Core.UI.Floaty;
 using Java.IO;
-using Microsoft.Maui;
 using Path = System.IO.Path;
 using Examples.Core;
 
@@ -36,9 +35,9 @@ public class FloatyTest
 
         SystemFloatyWindow floatyWindow = null;
 
-        Runtime.Ui["show"].On("click", new OnClickListener(async (v) =>
+        Runtime.Ui["show"].On("click", new OnClickListener((v) =>
         {
-            if (!await Runtime.PermissionHelper.CheckFloatyAsync())
+            if (!Runtime.PermissionHelper.CheckFloaty())
             {
                 Runtime.PermissionHelper.ReqFloaty();
                 return;

@@ -1,3 +1,4 @@
+using Android.Graphics;
 using astator.Core.Script;
 using astator.Core.UI.Base;
 using Examples.Core;
@@ -9,6 +10,8 @@ public class Test
     public static void Main(ScriptRuntime runtime)
     {
         Runtime.Instance = runtime;
+
+        DefaultTheme.ColorPrimary = Color.Teal;
 
         var xml =
         @"
@@ -23,7 +26,7 @@ public class Test
                     <text text='普通文本' textSize='16' margin='20,5'/>
                     <text text='加粗文本' textSize='16' textStyle='bold' margin='20,5'/>
                     <text text='加粗斜体文本' textSize='16' textStyle='bold|italic' margin='20,5'/>
-                    <text text='超链接文本: https://www.baidu.com' textSize='16' autoLink='web' margin='20,5'/>
+                    <text autoLink='web' text='超链接文本: https://www.baidu.com' textSize='16'  margin='20,5'/>
                     <edit hint='我是编辑框提示' textSize='16' w='240' margin='20,5'/>
 
                     <text text='按钮控件:' textSize='18' textStyle='bold' margin='10,15,0,5'/>
@@ -63,7 +66,6 @@ public class Test
                     <text text='下拉框控件:' textSize='18' textStyle='bold' margin='10,15,0,5'/>
                     <spinner entries='选项1|选项2|选项3|选项4' position='2' margin='20,0'/>
                     <spinner textColor='red' entries='选项1|选项2|选项3|选项4' position='1' margin='20,0'/>
-
                     <web h='500' url='https://astator.gitee.io/docs/#/quickstart'/>
                 </linear>
             </scroll>
@@ -74,7 +76,7 @@ public class Test
         Runtime.Ui.Show(layout);
         //设置状态栏颜色
         Runtime.Ui.SetStatusBarColor("#444f7d");
-        //设置状态栏文字颜色为黑色
+        //设置状态栏深色字体图标
         Runtime.Ui.SetLightStatusBar();
 
         //添加单击事件
@@ -85,5 +87,4 @@ public class Test
             btn.SetAttr("text", $"{text}!");
         }));
     }
-
 }
