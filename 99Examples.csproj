@@ -5,9 +5,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="astator.Core" Version="0.3.1" />
+        <PackageReference Include="astator.Core" Version="*" />
         <PackageReference Include="Serilog" Version="2.10.0" />
-        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="*"/>
+        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="*" />
     </ItemGroup>
 
     <ProjectExtensions>
@@ -16,7 +16,7 @@
         <ApkBuilderConfigs>
             <Label>Examples</Label>
             <PackageName>com.script.Examples</PackageName>
-            <Version>0.2.3</Version>
+            <Version>0.3.0</Version>
         </ApkBuilderConfigs>
     </ProjectExtensions>
 

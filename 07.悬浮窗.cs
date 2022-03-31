@@ -39,7 +39,10 @@ public class FloatyTest
         {
             if (!Runtime.PermissionHelper.CheckFloaty())
             {
-                Runtime.PermissionHelper.ReqFloaty();
+                Runtime.PermissionHelper.ReqFloaty((isEnabled) =>
+                {
+                    if (isEnabled) Globals.Toast("申请悬浮窗权限成功");
+                });
                 return;
             }
             else
