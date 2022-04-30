@@ -1,6 +1,5 @@
-using System;
-using System.Threading;
 using astator.Core.Script;
+using Console = astator.Core.Script.Console;
 
 namespace Examples;
 public class HelloWorld

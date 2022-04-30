@@ -1,24 +1,16 @@
-using System;
-using System.IO;
-using Android.Graphics;
 using astator.Core.Script;
-using astator.Core.ThirdParty;
 using astator.Core.UI.Base;
 using astator.Core.UI.Floaty;
-using Java.IO;
-using Path = System.IO.Path;
-using Examples.Core;
-
+using System;
 namespace Examples;
 
 public class FloatyTest
 {
 
 
-    [ScriptEntryMethod(FileName = "07.悬浮窗.cs", IsUIMode = true)]
+    [ScriptEntryMethod(FileName = "08.悬浮窗.cs", IsUIMode = true)]
     public static void Main(ScriptRuntime runtime)
     {
-        Runtime.Instance = runtime;
         var ui = @"
         <linear orientation='vertical'>
             <card bg='#444f7d'>
@@ -31,15 +23,15 @@ public class FloatyTest
             </linear>
         </linear>";
 
-        Runtime.Ui.Show(Runtime.Ui.ParseXml(ui));
+        runtime.Ui.Show(runtime.Ui.ParseXml(ui));
 
         SystemFloatyWindow floatyWindow = null;
 
-        Runtime.Ui["show"].On("click", new OnClickListener((v) =>
+        runtime.Ui["show"].On("click", new OnClickListener((v) =>
         {
-            if (!Runtime.PermissionHelper.CheckFloaty())
+            if (!runtime.PermissionHelper.CheckFloaty())
             {
-                Runtime.PermissionHelper.ReqFloaty((isEnabled) =>
+                runtime.PermissionHelper.ReqFloaty((isEnabled) =>
                 {
                     if (isEnabled) Globals.Toast("申请悬浮窗权限成功");
                 });
@@ -56,20 +48,20 @@ public class FloatyTest
                 </frame>
                 ";
 
-                var manager = Runtime.FloatyHelper.CreateFloatyManager();
+                var manager = runtime.FloatyHelper.CreateFloatyManager();
                 var view = manager.ParseXml(xml);
                 floatyWindow = manager.CreateSystemFloaty(view);
                 floatyWindow.Show();
             }
         }));
 
-        Runtime.Ui["remove"].On("click", new OnClickListener((v) =>
+        runtime.Ui["remove"].On("click", new OnClickListener((v) =>
         {
             floatyWindow?.Remove();
             floatyWindow = null;
         }));
 
-        Runtime.Ui["setPosition"].On("click", new OnClickListener((v) =>
+        runtime.Ui["setPosition"].On("click", new OnClickListener((v) =>
         {
             if (floatyWindow is not null)
             {
@@ -77,9 +69,7 @@ public class FloatyTest
                 var y = new Random().Next(690);
                 floatyWindow?.SetPosition(x, y);
             }
-
         }));
-
     }
 
 

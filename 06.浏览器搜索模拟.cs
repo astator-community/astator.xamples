@@ -1,17 +1,15 @@
-using System;
-using System.Threading;
 using astator.Core.Accessibility;
 using astator.Core.Script;
-using Examples.Core;
+using System.Threading;
+using Console = astator.Core.Script.Console;
 
 namespace Examples;
 public class UiFinderTest
 {
-    [ScriptEntryMethod(FileName = "04.浏览器搜索模拟.cs")]
+    [ScriptEntryMethod(FileName = "06.浏览器搜索模拟.cs")]
     public static void Main(ScriptRuntime runtime)
     {
-        Runtime.Instance = runtime;
-        if (!Runtime.PermissionHelper.CheckAccessibility())
+        if (!runtime.PermissionHelper.CheckAccessibility())
         {
             Globals.Toast("请先开启无障碍服务!");
             Console.WriteLine("请先开启无障碍服务!");

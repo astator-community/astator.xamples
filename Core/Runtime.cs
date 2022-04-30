@@ -1,14 +1,14 @@
-using System;
+using Android.App;
+using astator.Core.Script;
+using astator.Core.Threading;
 using astator.Core.UI;
 using astator.Core.UI.Floaty;
-using astator.Core.Threading;
-using astator.Core.Script;
-using Android.App;
+using System;
 
 namespace Examples.Core;
 public static class Runtime
 {
-    
+
     /// <summary>
     /// 实例
     /// </summary>
@@ -70,7 +70,7 @@ public static class Runtime
     /// 添加一个logger的回调
     /// </summary>
     /// <returns>回调的key</returns>
-    public static string AddLoggerCallback(Action<LogArgs> callback) => Instance.AddLoggerCallback(callback);
+    public static string AddLoggerCallback(Action<LogLevel, DateTime, string> callback) => Instance.AddLoggerCallback(callback);
 
     /// <summary>
     /// 移除logger的回调

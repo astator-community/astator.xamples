@@ -1,16 +1,13 @@
 using Android.Graphics;
 using astator.Core.Script;
 using astator.Core.UI.Base;
-using Examples.Core;
 
 namespace Examples;
 public class Test
 {
-    [ScriptEntryMethod(FileName = "03.ui控件预览.cs", IsUIMode = true)]
+    [ScriptEntryMethod(FileName = "04.ui控件预览.cs", IsUIMode = true)]
     public static void Main(ScriptRuntime runtime)
     {
-        Runtime.Instance = runtime;
-
         DefaultTheme.ColorPrimary = Color.Teal;
 
         var xml =
@@ -72,12 +69,12 @@ public class Test
         </linear>";
 
         //解析xml
-        var layout = Runtime.Ui.ParseXml(xml);
-        Runtime.Ui.Show(layout);
+        var layout = runtime.Ui.ParseXml(xml);
+        runtime.Ui.Show(layout);
         //设置状态栏颜色
-        Runtime.Ui.SetStatusBarColor("#444f7d");
+        runtime.Ui.SetStatusBarColor("#444f7d");
         //设置状态栏深色字体图标
-        Runtime.Ui.SetLightStatusBar();
+        runtime.Ui.SetLightStatusBar();
 
         //添加单击事件
         runtime.Ui["btn"].On("click", new OnClickListener((v) =>

@@ -2,21 +2,26 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0-android</TargetFramework>
+		<UseMaui>true</UseMaui>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="astator.Core" Version="*" />
+      <None Remove="Assets\findImage.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="astator.Core" Version="0.4.2" />
         <PackageReference Include="Serilog" Version="2.10.0" />
-        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="*" />
     </ItemGroup>
 
     <ProjectExtensions>
         <IsObfuscate>true</IsObfuscate>
         <UseOCR>true</UseOCR>
+		<BuildX86>true</BuildX86>
         <ApkBuilderConfigs>
             <Label>Examples</Label>
             <PackageName>com.script.Examples</PackageName>
-            <Version>0.3.0</Version>
+            <Version>0.4.0</Version>
         </ApkBuilderConfigs>
     </ProjectExtensions>
 

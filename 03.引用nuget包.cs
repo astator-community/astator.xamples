@@ -1,10 +1,10 @@
-using System;       
 using astator.Core.Script;
+using Console = astator.Core.Script.Console;
 
 namespace Examples;
 public class UsingNugetPackage
 {
-    [ScriptEntryMethod(FileName = "02.引用nuget包.cs")]
+    [ScriptEntryMethod(FileName = "03.引用nuget包.cs")]
     public static void Main(ScriptRuntime runtime)
     {
         //我们在csproj引用了一个Serilog的nuget包, 简单获取它某个类的全名
